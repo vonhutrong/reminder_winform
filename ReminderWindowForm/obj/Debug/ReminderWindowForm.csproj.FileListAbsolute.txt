@@ -1,0 +1,9 @@
+C:\Users\trongvn13\Documents\Visual Studio 2015\Projects\ReminderWindowForm\ReminderWindowForm\bin\Debug\ReminderWindowForm.exe.config
+C:\Users\trongvn13\Documents\Visual Studio 2015\Projects\ReminderWindowForm\ReminderWindowForm\bin\Debug\ReminderWindowForm.exe
+C:\Users\trongvn13\Documents\Visual Studio 2015\Projects\ReminderWindowForm\ReminderWindowForm\bin\Debug\ReminderWindowForm.pdb
+C:\Users\trongvn13\Documents\Visual Studio 2015\Projects\ReminderWindowForm\ReminderWindowForm\obj\Debug\ReminderWindowForm.Properties.Resources.resources
+C:\Users\trongvn13\Documents\Visual Studio 2015\Projects\ReminderWindowForm\ReminderWindowForm\obj\Debug\ReminderWindowForm.SettingForm.resources
+C:\Users\trongvn13\Documents\Visual Studio 2015\Projects\ReminderWindowForm\ReminderWindowForm\obj\Debug\ReminderWindowForm.csproj.GenerateResource.Cache
+C:\Users\trongvn13\Documents\Visual Studio 2015\Projects\ReminderWindowForm\ReminderWindowForm\obj\Debug\ReminderWindowForm.exe
+C:\Users\trongvn13\Documents\Visual Studio 2015\Projects\ReminderWindowForm\ReminderWindowForm\obj\Debug\ReminderWindowForm.pdb
+C:\Users\trongvn13\Documents\Visual Studio 2015\Projects\ReminderWindowForm\ReminderWindowForm\obj\Debug\ReminderWindowForm.csprojResolveAssemblyReference.cache
