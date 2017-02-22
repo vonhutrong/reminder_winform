@@ -22,8 +22,7 @@ namespace ReminderWindowForm
         {
             InitializeComponent();
 
-            timeValue.Text = Properties.Settings.Default.timeValue;
-            message.Text = Properties.Settings.Default.message;
+            loadUserSettings();
 
             timer.Tick += new EventHandler(OnTimedEvent);
             notifyIcon.Icon = ReminderWindowForm.Properties.Resources.icon;
@@ -37,21 +36,13 @@ namespace ReminderWindowForm
             {
                 allowVisible = true;
             }
-
-            //start with windows
-            bool isStartedWithWindows = Properties.Settings.Default.startedWithWindows;
-            if (!isStartedWithWindows)
-            {
-                RegistryKey add = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-                add.SetValue("Reminder", "\"" + Application.ExecutablePath.ToString() + "\"");
-
-                Properties.Settings.Default.startedWithWindows = true;
-                Properties.Settings.Default.Save();
-            }
         }
 
-        private void SettingForm_Load(object sender, EventArgs e)
+        private void loadUserSettings()
         {
+            timeValue.Text = Properties.Settings.Default.timeValue;
+            message.Text = Properties.Settings.Default.message;
+            checkBox1.Checked = Properties.Settings.Default.startedWithWindows;
         }
 
         #region events
@@ -126,6 +117,11 @@ namespace ReminderWindowForm
             base.SetVisibleCore(value);
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            setStartingWithWindowsStatus(checkBox1.Checked);
+        }
+
         #endregion
 
         #region private functions
@@ -158,6 +154,23 @@ namespace ReminderWindowForm
         {
             Properties.Settings.Default.timeValue = timeValue.Text;
             Properties.Settings.Default.message = message.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void setStartingWithWindowsStatus(bool active)
+        {
+            RegistryKey startWithWindowsRegistryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            string registryName = "Reminder";
+            string registryValue = "\"" + Application.ExecutablePath.ToString() + "\"";
+            if (active)
+            {
+                startWithWindowsRegistryKey.SetValue(registryName, registryValue);
+            }
+            else
+            {
+                startWithWindowsRegistryKey.DeleteValue(registryName);
+            }
+            Properties.Settings.Default.startedWithWindows = active;
             Properties.Settings.Default.Save();
         }
 

@@ -42,6 +42,7 @@ namespace ReminderWindowForm
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +74,7 @@ namespace ReminderWindowForm
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(105, 192);
+            this.btnStart.Location = new System.Drawing.Point(105, 186);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 2;
@@ -85,6 +86,8 @@ namespace ReminderWindowForm
             // 
             this.timeValue.FormattingEnabled = true;
             this.timeValue.Items.AddRange(new object[] {
+            "5",
+            "10",
             "15",
             "30",
             "45",
@@ -124,11 +127,23 @@ namespace ReminderWindowForm
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(15, 230);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(117, 17);
+            this.checkBox1.TabIndex = 3;
+            this.checkBox1.Text = "Start with Windows";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // SettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 228);
+            this.ClientSize = new System.Drawing.Size(284, 259);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.timeValue);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.message);
@@ -138,7 +153,6 @@ namespace ReminderWindowForm
             this.Name = "SettingForm";
             this.Text = "Setting";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingForm_FormClosing);
-            this.Load += new System.EventHandler(this.SettingForm_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -156,5 +170,6 @@ namespace ReminderWindowForm
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem settingToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
+        private CheckBox checkBox1;
     }
 }
